@@ -20,8 +20,11 @@ def init_model(num_classes):
     model.add(Dropout(0.5))
     model.add(Dense(num_classes, activation='softmax'))
 
+    # Defining Optimizer
     optimizer = Adadelta(lr = 0.75)
 
+    # Compiling model with optimizer, loss and metrics
     model.compile(loss = 'binary_crossentropy', optimizer = optimizer, metrics = ["accuracy"])
 
+    # return the compiled model
     return model
