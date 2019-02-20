@@ -4,8 +4,9 @@ from sklearn.model_selection import train_test_split
 
 
 # Function for loading and splitting into train-test
-def split_data(path):
+def split_data():
     # Loading data from the datapath
+    path = './data/images/'
     
     X = np.load(path + 'Images.npy')
     Y = np.load(path + 'Labels.npy')
@@ -24,12 +25,5 @@ def split_data(path):
     # Saving the split data as npy files for training
     np.save(path + 'X_train.npy', X_train)
     np.save(path + 'X_test.npy', X_test)
-    np.save(path + 'y_train.npy', y_train)
-    np.save(path + 'y_test.npy', y_test)
-
-
-# defining the data load path
-DATAPATH = './data/NPY-files/'
-
-# Calling split data function to perform the split
-split_data(DATAPATH)
+    np.save(path + 'Y_train.npy', y_train)
+    np.save(path + 'Y_test.npy', y_test)

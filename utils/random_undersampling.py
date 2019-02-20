@@ -11,7 +11,7 @@ def undersample_data():
     
     # Loading training data from disc
     X_train = np.load(path + 'X_train.npy')
-    y_train = np.load(path + 'y_train.npy')
+    y_train = np.load(path + 'Y_train.npy')
 
     print("[INFO]Loaded Dataset successfully.")
 

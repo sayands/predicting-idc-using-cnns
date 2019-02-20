@@ -46,9 +46,10 @@ def process_images(imagePatches, classZero, classOne):
     return x,y
 
 # Function to load images from disk
-def load_images(path):
+def load_images():
 
     # Loading the path of all image Patches 
+    path = './data/'
     imagePatches = glob(path + 'images/**/*.png', recursive=True)
     print("[INFO]Total No.of Images in our Dataset - {}".format(len(imagePatches)))
 
@@ -85,8 +86,3 @@ def load_images(path):
     # Printing timeer information
     print("[INFO]Saved Files Successfully.")
     print("[INFO]Time Taken - {}s".format(end - start))
-
-
-# Defining data path and invoking function
-DATAPATH = "./data/"
-load_images(DATAPATH)
