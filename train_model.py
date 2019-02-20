@@ -20,10 +20,10 @@ history = model.fit(X_trainRusReshaped,Y_trainRusHot,batch_size=batch_size,
                       epochs=epochs, verbose=1)
 
 # Saving dictionary as a pickle file
-f = open('history.pckl', 'wb')
+f = open('./data/history.pckl', 'wb')
 pickle.dump(history.history, f)
 f.close()
 
 
 # Saving Model for further evaluation 
-model.save('my_model_new.h5')
+model.save('my_model.h5')
