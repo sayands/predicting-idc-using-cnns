@@ -27,10 +27,10 @@ def train_model():
                       epochs=epochs, verbose=1, validation_data = (X_test, y_test), callbacks = [annealer])
 
     # Saving dictionary as a pickle file
-    f = open('./data/history.pckl', 'wb')
+    f = open('./model/Pickle-Files/history.pckl', 'wb')
     pickle.dump(history.history, f)
     f.close()
 
 
     # Saving Model for further evaluation 
-    classifier.save('idc_model.h5')
+    classifier.save('./model/idc_model.h5')
