@@ -11,7 +11,7 @@ def evaluate_model():
     
     print("[INFO]No.of Test Images - {}".format(X_test.shape[0]))
     print("[INFO]Loading model...")
-    model = load_model('cancer_model.h5')
+    model = load_model('idc_model.h5')
 
     y_pred_one_hot = model.predict(X_test)
     y_pred_labels = np.argmax(y_pred_one_hot, axis = 1)

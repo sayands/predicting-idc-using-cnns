@@ -7,7 +7,7 @@ from imblearn.under_sampling import RandomUnderSampler
 def undersample_data():
 
     # Defining path to load data from    
-    path = "./data/NPY-Files/"
+    path = "../data/NPY-Files/"
     
     # Loading training data from disc
     X_train = np.load(path + 'X_train.npy')

@@ -4,6 +4,7 @@ from keras.utils import to_categorical
 from keras.models import Sequential, load_model
 from keras.layers import Dense, Dropout, Flatten, Conv2D, MaxPool2D, Activation
 from keras.optimizers import Adadelta 
+from keras.callbacks import ReduceLROnPlateau
 
 # Function to define model architecture
 def init_model(num_classes):
@@ -25,6 +26,6 @@ def init_model(num_classes):
 
     # Compiling model with optimizer, loss and metrics
     model.compile(loss = 'binary_crossentropy', optimizer = optimizer, metrics = ["accuracy"])
-
+    annealer = ReduceLROnPlateau(monitor = 'val_acc', patience = 3, verbose = 1, factor = 0.5, min_lr = 0.00001)
     # return the compiled model
-    return model
+    return model, annealer

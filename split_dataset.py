@@ -20,8 +20,7 @@ def split_data():
     X /= 255.
 
     # Split the dataset into train and test
-    X_train, X_test, y_train, y_test = train_test_split(X,Y,test_size=0.15)
-
+    X_train, X_test, y_train, y_test = train_test_split(X,Y,test_size=0.15)   
     # Saving the split data as npy files for training
     np.save(path + 'X_train.npy', X_train)
     np.save(path + 'X_test.npy', X_test)
