@@ -13,11 +13,11 @@ def make_plots():
     # Plot Training Accuracy vs Validation Accuracy Curve
     plt.plot(training['acc'])
     plt.plot(training['val_acc'])
-    plt.title('model accuracy')
+    plt.title('Model accuracy with Best Optimizer(Adadelta)')
     plt.ylabel('Accuracy')
     plt.xlabel('No.of Epochs')
     plt.legend(['train', 'validation'], loc='lower right')
-    plt.savefig('./model/Plots/Accuracy_Epochs.eps', type="eps", dpi = 1200, bbox_inches='tight', 
+    plt.savefig('./model/Plots/Accuracy_Epochs_Best_Opt.eps', type="eps", dpi = 1200, bbox_inches='tight', 
                transparent=True,
                pad_inches=0)
     plt.show()
@@ -25,11 +25,13 @@ def make_plots():
     # Plot Training Loss vs Validation Loss
     plt.plot(training['loss'])
     plt.plot(training['val_loss'])
-    plt.title('Model Loss')
+    plt.title('Model Loss with Best Optimizer(Adadelta)')
     plt.ylabel('Loss')
     plt.xlabel('No.of Epochs')
-    plt.legend(['train', 'validation'], loc='lower right')
-    plt.savefig('./model/Plots/Loss_Epochs.eps', type="eps", dpi = 1200, bbox_inches='tight', 
+    plt.legend(['train', 'validation'], loc='upper right')
+    plt.savefig('./model/Plots/Loss_Epochs_Best_Opt.eps', type="eps", dpi = 1200, bbox_inches='tight', 
                transparent=True,
                pad_inches=0)
     plt.show()
+
+make_plots()
