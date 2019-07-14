@@ -4,9 +4,14 @@ from sklearn.model_selection import train_test_split
 
 
 # Function for loading and splitting into train-test
-def split_data():
+def split_data(test_size):
+    '''
+    Task : Loads the .npy files from the 'data/NPY-Files' directory
+    of the root folder and makes the train-test split to 
+    save the split data back in the same directory
+    '''
     # Loading data from the datapath
-    path = './data/images/'
+    path = './data/NPY-Files/'
     
     X = np.load(path + 'Images.npy')
     Y = np.load(path + 'Labels.npy')
@@ -20,7 +25,7 @@ def split_data():
     X /= 255.
 
     # Split the dataset into train and test
-    X_train, X_test, y_train, y_test = train_test_split(X,Y,test_size=0.15)   
+    X_train, X_test, y_train, y_test = train_test_split(X,Y,test_size = test_size)   
     # Saving the split data as npy files for training
     np.save(path + 'X_train.npy', X_train)
     np.save(path + 'X_test.npy', X_test)

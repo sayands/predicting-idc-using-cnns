@@ -1,6 +1,17 @@
 # ------------------------------------------------------------------------------------------------------
-# Main Program to run the codes according to the pipeline
+# Main Program to run the codes according to the proposed pipeline
 # -------------------------------------------------------------------------------------------------------
+
+#---------------------------------------------------------------------------------------------------------
+# MAJOR PARAMETERS 
+#---------------------------------------------------------------------------------------------------------
+TEST_SIZE = 0.15
+BATCH_SIZE = 32
+NUM_CLASSES = 2
+EPOCHS = 50
+LEARNING_RATE = 0.75
+#---------------------------------------------------------------------------------------------------------
+
 
 # Importing neccessary packages and libraries
 from glob import glob
@@ -27,20 +38,25 @@ from keras.utils import to_categorical
 from load_dataset import load_images
 from split_dataset import split_data
 from train_model import train_model
-from evaluate_model import 
+from evaluate_model import evaluate_model
 from utils.plot_acc_loss import make_plots
 
 # Function call to load images and store them as npy files
+print('[INFO]Loading Images...')
 load_images()
 
 # Function call to split data into train and test
-split_data()
+print('[INFO]Splitting Images...')
+split_data(test_size = TEST_SIZE)
 
 # Function call to train model 
-train_model()
+print('[INFO]Training Model...')
+train_model(batch_size = BATCH_SIZE, epochs = EPOCHS, num_classes = NUM_CLASSES)
 
 # Function call to evaluate model
+print('[INFO]Evaluating Model...')
 evaluate_model()
 
 # Function call to plot accuracy and loss
+print('[INFO]Generating Plots and Visualisations...')
 make_plots()

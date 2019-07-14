@@ -5,7 +5,14 @@ from keras.utils import to_categorical
 from imblearn.under_sampling import RandomUnderSampler
 
 def undersample_data():
-
+    '''
+    Tasks :
+    1. Load the training data from root folder directory
+    2. Randomly undersample the majority class to match the number of 
+       samples of the minority class
+    
+    Returns : Undersampled training data
+    '''
     # Defining path to load data from    
     path = "./data/NPY-Files/"
     

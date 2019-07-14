@@ -6,7 +6,17 @@ from keras.models import load_model
 
 # Function to make a signal prediction
 def make_single_prediction(imagePath):
-    # Defining height and width of image expected by model
+    '''
+    Arguments : 
+    imagePath : path of image to be read for prediction by the trained model
+
+    Tasks:
+    1. Resize and normalise image to match model input shape
+    2. Load model and make a prediction
+    3. Display the result
+    '''
+
+    # Defining height and width of image as expected by model
     height = 50
     width = 50
 
@@ -16,9 +26,9 @@ def make_single_prediction(imagePath):
     
     # Resizing Image
     img = (cv2.resize(img, (width,height), interpolation=cv2.INTER_CUBIC))
-    
+    img /= 255.0
     # Expanding dimensions to be a 4-rank tensor needed by keras function 
-    img = np.expand_dims(img, axis=0)
+    img = img.reshape((1, img.shape[0], img.shape[1], img.shape[2]))
     print("[INFO]Loading model...")
     model = load_model('idc_model.h5')
 

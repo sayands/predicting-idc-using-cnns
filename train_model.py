@@ -4,11 +4,17 @@ from utils import model, random_undersampling
 from keras.utils import to_categorical
 import pickle
 
-def train_model():
-    # Hyperparameters
-    batch_size = 32
-    num_classes = 2
-    epochs = 50
+def train_model(batch_size, num_classes, epochs, learning_rate):
+    '''
+    Tasks : 
+    1. Load the training and test dataset from the root folder directory
+    2. Randomly Undersample the training data to prevent bias due to
+       class imbalance
+    3. Define the Model Architecture 
+    4. Train the model
+    5. Save the model and history to get a visualisation of model 
+       performance over the period of training
+    '''
 
     # DataPath
     path = './data/NPY-Files/'
@@ -20,7 +26,7 @@ def train_model():
     X_test = np.load(path + 'X_test.npy')
     y_test = np.load(path + 'Y_test.npy')
     # Creating model
-    classifier, annealer = model.init_model(num_classes)
+    classifier, annealer = model.init_model(num_classes = num_classes, learning_rate = learning_rate)
 
     # Starting training of model on undersampled training data
     history = classifier.fit(X_trainRusReshaped,Y_trainRusHot,batch_size=batch_size,

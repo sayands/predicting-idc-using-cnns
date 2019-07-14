@@ -10,10 +10,17 @@ import matplotlib.pyplot as plt
 # Function to process images and return corresponding tensor
 def process_images(imagePatches, classZero, classOne):
     """
+    Arguments : 
+    imagePatches : list of Image Paths  to be read and processed
+    classZero : list of images, without any sign of IDC
+    classOne : list of images, showing the presence of IDC
+
     Returns two arrays: 
         x is an array of resized images
         y is an array of labels
     """ 
+    
+    # Parameters
     height = 50
     width = 50
     channels = 3
@@ -28,7 +35,7 @@ def process_images(imagePatches, classZero, classOne):
         # Reading in the image
         full_size_image = cv2.imread(img)
 
-        # Resizing image
+        # Resizing image using Cubic B-Spline Interpolation
         image = (cv2.resize(full_size_image, (width,height), interpolation=cv2.INTER_CUBIC))
         
         # Appending image to the list 
@@ -47,7 +54,11 @@ def process_images(imagePatches, classZero, classOne):
 
 # Function to load images from disk
 def load_images():
-
+    '''
+    Task : Loads the images from the 'data/images' directory in the root folder, 
+           processes them and saves them as .npy files for further processing in the 
+           'data/NPY-Files' directory in the root folder
+    '''
     # Loading the path of all image Patches 
     path = './data/'
     imagePatches = glob(path + 'images/**/*.png', recursive=True)

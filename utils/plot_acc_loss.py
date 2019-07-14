@@ -5,7 +5,12 @@ import matplotlib.pyplot as plt
 
 # Function to plot accuracy and loss
 def make_plots():
-
+    '''
+    Tasks : 
+    1. Load the pickle file from the root folder 
+    2. Generate Loss and Accuracy Curves against number of epochs
+    3. Save the plots
+    '''
     # Saving dictionary as a pickle file
     history_file = open("../model/Pickle-Files/history.pckl",'rb')
     training = pickle.load(history_file)

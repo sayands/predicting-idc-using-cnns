@@ -4,6 +4,16 @@ from keras.models import load_model
 from sklearn.metrics import classification_report, confusion_matrix, balanced_accuracy_score
 
 def evaluate_model():
+    '''
+    Tasks : 
+    1. Load the already trained model and test data from root folder
+    2. Run predictions on test data and compare with the ground truths
+    3. Calculate and display - 
+            a. Confusion Matrix 
+            b. Classification Report - Precision, Recall and F1-Score
+            c. Balanced Accuracy Score
+    '''
+
     path = './data/NPY-Files/'
 
     X_test = np.load(path + 'X_test.npy')
