@@ -7,7 +7,7 @@ import matplotlib.pyplot as plt
 def make_plots():
 
     # Saving dictionary as a pickle file
-    history_file = open("./model/Pickle-Files/history.pckl",'rb')
+    history_file = open("../model/Pickle-Files/history.pckl",'rb')
     training = pickle.load(history_file)
 
     # Plot Training Accuracy vs Validation Accuracy Curve
@@ -17,7 +17,8 @@ def make_plots():
     plt.ylabel('Accuracy')
     plt.xlabel('No.of Epochs')
     plt.legend(['train', 'validation'], loc='lower right')
-    plt.savefig('./model/Plots/Accuracy_Epochs_Best_Opt.eps', type="eps", dpi = 1200, bbox_inches='tight', 
+    plt.grid('on')
+    plt.savefig('../model/Accuracy_Epochs_Best_Opt_Grid.eps', type="eps", dpi = 1200, bbox_inches='tight', 
                transparent=True,
                pad_inches=0)
     plt.show()
@@ -29,7 +30,8 @@ def make_plots():
     plt.ylabel('Loss')
     plt.xlabel('No.of Epochs')
     plt.legend(['train', 'validation'], loc='upper right')
-    plt.savefig('./model/Plots/Loss_Epochs_Best_Opt.eps', type="eps", dpi = 1200, bbox_inches='tight', 
+    plt.grid('on')
+    plt.savefig('../model/Loss_Epochs_Best_Opt_Grid.eps', type="eps", dpi = 1200, bbox_inches='tight', 
                transparent=True,
                pad_inches=0)
     plt.show()
