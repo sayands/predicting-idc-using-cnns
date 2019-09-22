@@ -1,6 +1,6 @@
 import numpy as np
 import keras
-from utils import model, random_undersampling
+from architecture import init_model
 from keras.utils import to_categorical
 import pickle
 from keras_radam import RAdam
