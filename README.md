@@ -12,6 +12,7 @@ images from 162 women diagnosed with invasive ductal carcinoma at the Hospital o
 
 * Create a conda environment 
     ``` conda create -n idc-env python=3.7
-        conda activate idc-env```
+        conda activate idc-env
+     ```
 * Install the required packages
     ``` pip install -r requirements.txt```
