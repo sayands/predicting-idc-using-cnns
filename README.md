@@ -8,11 +8,9 @@ We propose a simple and effective convolutional neural network for automated det
 of invasive cancer tissues in terms of F1-score and balanced accuracy of 88.30% and 87.35%, respectively. In comparison to the best-performing handcrafted features and deep learning based state-of-the-art methods, the proposed architecture performs better by a margin of 12% and 2% in terms of F1-score and balanced accuracy, respectively. In addition, we achieve precision and recall scores of 0.8877 and 0.8809 respectively, on a highly unbalanced dataset of whole- slide histopathology
 images from 162 women diagnosed with invasive ductal carcinoma at the Hospital of the University of Pennsylvania and The Cancer Institute of New Jersey.
 
-### Installation
-
-* Create a conda environment 
-    ``` conda create -n idc-env python=3.7
-        conda activate idc-env
-     ```
-* Install the required packages
-    ``` pip install -r requirements.txt```
+### Installation 
+```
+conda create -n idc-env python=3.7
+conda activate idc-env
+pip install -r requirements.txt
+```
